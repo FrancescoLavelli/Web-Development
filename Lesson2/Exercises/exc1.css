@@ -1,0 +1,21 @@
+h1{
+    color: blue;
+}
+
+#main-title{
+    color: green;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p{
+    font-size: 18px;
+}
+
+.highlight{
+    background-color: yellow;
+}
+
+h ~ p {
+    border: 2px solid black;
+}
