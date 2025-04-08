@@ -1,0 +1,82 @@
+/* Define HSL-based theme variables */
+:root {
+  --primary-hue: 200;
+  --primary-saturation: 80%;
+  --primary-lightness: 50%;
+
+  --primary-color: hsl(
+    var(--primary-hue),
+    var(--primary-saturation),
+    var(--primary-lightness)
+  );
+  --background-color: hsl(var(--primary-hue), 40%, 90%);
+  --text-color: hsl(var(--primary-hue), 80%, 20%);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary-hue), 60%, 80%),
+    hsl(calc(var(--primary-hue) + 40), 70%, 70%)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 8s infinite alternate ease-in-out;
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Color preview box */
+.preview-box {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-color);
+  margin: 20px auto;
+  border-radius: 10px;
+  transition: background-color 0.5s;
+}
+
+/* Styled buttons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
+  margin: 5px;
+}
+
+/* Button hover and animation */
+button:hover {
+  background-color: hsl(
+    var(--primary-hue),
+    var(--primary-saturation),
+    calc(var(--primary-lightness) - 10%)
+  );
+  transform: scale(1.05);
+}
+
+/* Hue Picker Styling */
+input[type="range"] {
+  width: 200px;
+  margin: 10px;
+}
