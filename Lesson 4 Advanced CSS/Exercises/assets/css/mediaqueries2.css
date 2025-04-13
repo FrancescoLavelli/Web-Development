@@ -1,0 +1,298 @@
+/* CSS Reset & Base Styles */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --nav-bg: #fff;
+  --nav-text: #333;
+  --link-hover: #f0f0f0;
+  --border-color: #e1e1e1;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.system-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --nav-bg: #1f1f1f;
+    --nav-text: #e0e0e0;
+    --link-hover: #2d2d2d;
+    --border-color: #333;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+:root.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg: #1f1f1f;
+  --nav-text: #e0e0e0;
+  --link-hover: #2d2d2d;
+  --border-color: #333;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:root.light-theme {
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --nav-bg: #fff;
+  --nav-text: #333;
+  --link-hover: #f0f0f0;
+  --border-color: #e1e1e1;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+/* Hidden checkbox for menu toggle */
+#menu-toggle {
+  display: none;
+}
+
+/* Main Navigation Styles */
+.navbar {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: var(--nav-text);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  height: 40px;
+  width: 40px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: var(--nav-text);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--nav-text);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: var(--link-hover);
+}
+
+/* Theme Toggle Section */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.theme-label {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.theme-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-btn {
+  padding: 0.3rem 0.6rem;
+  background-color: var(--link-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--nav-text);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.theme-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* CSS hack for theme toggling using hidden radios */
+#light-toggle,
+#dark-toggle,
+#system-toggle {
+  display: none;
+}
+
+/* Active theme styling */
+:root.light-theme .light-btn,
+:root.dark-theme .dark-btn,
+:root.system-theme .system-btn {
+  background-color: var(--nav-text);
+  color: var(--nav-bg);
+}
+
+/* Target to make theme switching work with CSS only */
+#light-toggle:checked ~ body {
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --nav-bg: #fff;
+  --nav-text: #333;
+  --link-hover: #f0f0f0;
+  --border-color: #e1e1e1;
+}
+
+#dark-toggle:checked ~ body {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg: #1f1f1f;
+  --nav-text: #e0e0e0;
+  --link-hover: #2d2d2d;
+  --border-color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  #menu-toggle:checked ~ .navbar-container .nav-links {
+    max-height: 300px; /* Adjust based on your menu height */
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .nav-link {
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .theme-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+
+  /* Animated hamburger icon */
+  #menu-toggle:checked
+    ~ .navbar-container
+    .hamburger
+    .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #menu-toggle:checked
+    ~ .navbar-container
+    .hamburger
+    .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked
+    ~ .navbar-container
+    .hamburger
+    .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* Page Content */
+.content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: var(--nav-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+h1,
+h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}

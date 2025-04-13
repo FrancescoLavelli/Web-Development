@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/mediaqueries2.css" />
+    <title>Responsive Navbar with Theme Toggle</title>
+  </head>
+  <body class="system-theme">
+    <!-- Hidden checkboxes for theme toggling -->
+    <input type="radio" id="light-toggle" name="theme" />
+    <input type="radio" id="dark-toggle" name="theme" />
+    <input type="radio" id="system-toggle" name="theme" checked />
+
+    <!-- Hidden checkbox for menu toggle -->
+    <input type="checkbox" id="menu-toggle" />
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo-menu-container">
+          <a href="#" class="logo">Brand Logo</a>
+          <label for="menu-toggle" class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </label>
+        </div>
+
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+
+          <li class="theme-toggle">
+            <span class="theme-label">Theme:</span>
+            <div class="theme-options">
+              <label
+                for="light-toggle"
+                class="theme-btn light-btn"
+                onclick="document.body.className='light-theme'"
+                >Light</label
+              >
+              <label
+                for="dark-toggle"
+                class="theme-btn dark-btn"
+                onclick="document.body.className='dark-theme'"
+                >Dark</label
+              >
+              <label
+                for="system-toggle"
+                class="theme-btn system-btn"
+                onclick="document.body.className='system-theme'"
+                >System</label
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="content">
+      <section class="section">
+        <h1>Responsive Navbar with Theme Toggle</h1>
+        <p>
+          This example shows a responsive navbar that changes layout at 1024px.
+          On larger screens, the navigation links display in a horizontal row.
+          On smaller screens, they stack vertically behind a hamburger menu.
+        </p>
+        <p>
+          The page also includes a theme toggle with Light, Dark, and System
+          options - all implemented with CSS only!
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>How It Works</h2>
+        <p>This implementation uses CSS-only techniques:</p>
+        <ul>
+          <li>Hidden checkbox inputs control the mobile menu toggle</li>
+          <li>CSS variables provide theming capabilities</li>
+          <li>Media queries handle the responsive breakpoints</li>
+          <li>
+            The System theme uses the <code>prefers-color-scheme</code> media
+            query
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

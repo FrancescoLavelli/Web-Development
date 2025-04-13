@@ -1,0 +1,10 @@
+.box {
+  box-sizing: border-box;
+  width: 90%;
+  height: 100px;
+  border: 2px solid black;
+  margin: 0 auto 20px /*auto*/;
+  padding: 20px;
+  /* background: #aa3ac9; */
+  background: radial-gradient(at right bottom, #aa3ac9, #11d98c);
+}

@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: lightblue;
+}
+.container {
+  width: 800px;
+  height: 75lvh;
+  /* margin: 0 auto; 
+  the belows logical properties are equivalent, but  but more flexible for international layouts (arabic)and better future-proofing*/
+  margin-block: 20px;
+  margin-inline: auto;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+div[class^="box-"] {
+  padding: 20px;
+  margin: 4em auto;
+  border: 2px solid black;
+  width: 90%;
+  border-radius: 56% 10% 41% 10% / 31% 10% 45% 47%;
+}
+
+.box-1 {
+  background: rgb(58, 177, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(58, 177, 180, 1) 0%,
+    rgba(29, 101, 253, 1) 50%,
+    rgba(179, 69, 252, 1) 100%
+  );
+}
+
+.box-1:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+}
+
+.box-2 {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+
+.box-2:hover {
+  transform: scale(50%);
+}
+
+.box-3 {
+  background: rgb(58, 177, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(58, 177, 180, 1) 0%,
+    rgba(29, 253, 126, 1) 50%,
+    rgba(179, 69, 252, 1) 100%
+  );
+}
+
+.box-3:hover {
+  transform: rotate(180deg);
+}
+
+.gradient {
+  background: linear-gradient(to top, #aa3ac9, #11d98c);
+}
+
+nav {
+  padding: 10px;
+  text-align: center;
+}
+.footer {
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-block: 0;
+  margin-inline: auto;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+li {
+  display: inline-block;
+  padding: 20px;
+}
